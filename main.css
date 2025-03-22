@@ -1,0 +1,52 @@
+.container{
+    border: black solid 1px;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem; 
+    
+}
+
+.result{
+    padding: 30px;
+    width: 16rem;
+    height: 5rem;
+    border: solid black 1px;
+    border-radius: 10px;
+    margin-top: 1rem;
+    background-color: rgb(247, 247, 248);
+    overflow-wrap: break-word;  
+}
+
+
+.numbersRow{
+    display: flex;
+    flex-direction: row;
+    width: 20rem;
+}
+
+.numbers{
+    align-items: center;
+    margin: 30px 0;
+}
+
+.number{
+    border: solid black 0.3px;
+    padding:10px;
+    margin:5px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+    background-color: rgb(247, 247, 248);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
