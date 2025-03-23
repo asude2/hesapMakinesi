@@ -44,9 +44,13 @@
     cursor: pointer;
 }
 
-
-
-
-
-
-
+.calcButton{
+    border: solid black 0.3px;
+    padding:10px;
+    margin:5px;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+    background-color: rgb(247, 247, 248);
+    cursor: pointer;
+}

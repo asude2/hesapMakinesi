@@ -2,6 +2,70 @@ const buttons = document.querySelectorAll(".number");
 const display = document.querySelector(".result");
 const iconDelete = document.querySelector("#icon");
 
+const numbers = document.querySelector(".numbers")
+
+// ---------- UI RENDER -------------
+
+// dynamic data
+const numbersData = [
+    ["7", "8", "9", "+"], // row1
+    ["4", "5", "6", "-"], // row2
+    ["1", "2", "3", "x"], // row3
+    ["0", ".", "√", "/", "="] // row4
+]
+// { key: value }
+
+// components - generic
+function NumberComponent(number) {
+    // template string
+    numberHtml = `<div class="number">${number}</div>`
+    return numberHtml
+}
+
+function PopulateNumbers(numbers) {
+    let numberHtmls = []
+    for(let i = 0; i<numbers.length; i++) {
+        number = NumberComponent(numbers[i])
+
+        numberHtmls.push(number)
+    }
+
+    return numberHtmls
+}
+
+// array methodları
+// map, reduce, forEach, find, findIndex
+
+function NumbersRowComponent(numbersHtml) {
+    let numbersConcatString = ""
+    for(let i = 0; i<numbersHtml.length; i++) {
+        numbersConcatString += numbersHtml[i]
+    }
+    
+    html = `
+        <div class="numbersRow">
+            ${numbersConcatString}
+        </div>
+    `
+
+    return html
+}
+
+function RenderNumberRows() {
+    for(let i = 0; i<numbersData.length; i++) {
+        let rowNumbers = numbersData[i]
+        // her bir row icin
+        let numbersHtml = PopulateNumbers(rowNumbers)
+
+        let numberRow = NumbersRowComponent(numbersHtml)
+
+        numbers.innerHTML += numberRow
+    }
+}
+
+RenderNumberRows()
+
+// ---------- CALCULATION ------------
 buttons.forEach(button => {
     button.addEventListener("mousedown", () => {
         button.style.backgroundColor = "rgb(229, 227, 227)";
@@ -10,7 +74,6 @@ buttons.forEach(button => {
         button.style.backgroundColor = "rgb(247, 247, 248)";
     });
 });
-
 
 let arrays = [];
 buttons.forEach(element => {
@@ -143,8 +206,3 @@ iconDelete.addEventListener('click', () => {
     display.textContent = arrays.join("").slice(0, -1);
     arrays = [display.textContent];
 });
-
-
-
-
-
