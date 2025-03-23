@@ -76,21 +76,20 @@ buttons.forEach(button => {
 });
 
 let arrays = [];
-buttons.forEach(element => {
-    element.addEventListener("click", () => {
-        let icerik = element.textContent;
-
+numbers.addEventListener("click", (event) => {
+    if (event.target.classList.contains("number")) {
+        let icerik = event.target.textContent;
         arrays.push(icerik);
-        console.log(arrays);
         display.textContent = arrays.join("");
 
-        sil(icerik)
+        sil(icerik);
 
         if (icerik === "=") {
             hesapla();
         }
-    });
+    }
 });
+
 
 function hesapla() {
     let islem = arrays.join("").slice(0, -1);
